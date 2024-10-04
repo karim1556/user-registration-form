@@ -1,27 +1,52 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
-}
+/* styles/globals.css */
+@import 'tailwindcss/base';
+@import 'tailwindcss/components';
+@import 'tailwindcss/utilities';
 
 body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+  @apply bg-gray-100; 
 }
 
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+.react-datepicker-wrapper {
+  width: 100%;
+}
+
+.react-datepicker__input-container input {
+  @apply p-2 border border-gray-300 rounded-md;
+}
+
+/* Popup notification styling */
+#popup {
+  position: fixed;
+  top: 20px;
+  right: 20px;
+  background-color: #28a745;
+  color: white;
+  padding: 15px 25px;
+  border-radius: 5px;
+  font-size: 16px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  z-index: 1000;
+}
+
+.sparkle {
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  background-color: white;
+  border-radius: 50%;
+  box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+  animation: sparkle-animation 0.8s ease-out forwards;
+  pointer-events: none;
+}
+
+@keyframes sparkle-animation {
+  0% {
+    opacity: 1;
+    transform: scale(0.5) translateY(0);
+  }
+  100% {
+    opacity: 0;
+    transform: scale(1.5) translateY(-20px);
   }
 }
